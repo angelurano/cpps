@@ -3,8 +3,10 @@
 *.out
 *.a
 *.log
+
 megaphone
 phonebook
 account
 zombie
 address
+war
