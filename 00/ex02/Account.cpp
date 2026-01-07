@@ -6,12 +6,13 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:45:28 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/06 19:26:36 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:17:20 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -62,7 +63,19 @@ int Account::getNbWithdrawals(void) {
 }
 
 void Account::_displayTimestamp(void) {
-  std::cout << "[19920104_091532] ";
+  // std::cout << "[19920104_091532] "; -> "[YYYYMMDD_HHMMSS] "
+
+  std::time_t now = std::time(NULL);
+  std::tm* localinfo = std::localtime(&now);
+  std::cout << "["
+            << (localinfo->tm_year + 1900)
+            << (localinfo->tm_mon + 1 < 10 ? "0" : "") << (localinfo->tm_mon + 1)
+            << (localinfo->tm_mday < 10 ? "0" : "") << localinfo->tm_mday
+            << "_"
+            << (localinfo->tm_hour < 10 ? "0" : "") << localinfo->tm_hour
+            << (localinfo->tm_min < 10 ? "0" : "") << localinfo->tm_min
+            << (localinfo->tm_sec < 10 ? "0" : "") << localinfo->tm_sec
+            << "] ";
 }
 
 void Account::displayAccountsInfos(void) {

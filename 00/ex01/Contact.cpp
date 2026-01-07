@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 03:09:35 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/06 17:15:34 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:05:44 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ Contact::Contact() {}
 Contact::~Contact() {}
 
 std::string Contact::getFirstName() const {
-  return this->first_name_;
+  return first_name_;
 }
 
 std::string Contact::getLastName() const {
-  return this->last_name_;
+  return last_name_;
 }
 
 std::string Contact::getNickname() const {
-  return this->nickname_;
+  return nickname_;
 }
 
 std::string Contact::getPhoneNumber() const {
-  return this->phone_number_;
+  return phone_number_;
 }
 
 std::string Contact::getDarkestSecret() const {
