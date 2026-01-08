@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 23:44:28 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/08 13:24:38 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:25:18 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,7 @@ int main() {
 
   std::cout << std::endl << "Harl use of \"ERROR\" (error private member):" << std::endl;
   harl.complain("ERROR");
+
+  std::cout << std::endl << "Harl incorrect use \"EXAMPLE\" (not member):" << std::endl;
+  harl.complain("EXAMPLE");
 }
