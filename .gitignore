@@ -3,6 +3,7 @@
 *.out
 *.a
 *.log
+*.replace
 
 megaphone
 phonebook
@@ -11,5 +12,5 @@ zombie
 address
 war
 sed
-*.replace
 harl
+harlFilter
