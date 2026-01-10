@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 18:14:46 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/10 19:24:13 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:41:24 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
   energyPoints_ = 50;
   attackDamage_ = 20;
   std::cout << ITALIC << GRAY << "ScavTrap " << name << " created" << RESET << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& from) : ClapTrap(from) {
+  std::cout << ITALIC << GRAY << "ScavTrap copy created" << RESET << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& from) {
+  if (this != &from) {
+    ClapTrap::operator=(from);
+  }
+  return *this;
 }
 
 ScavTrap::~ScavTrap() {
