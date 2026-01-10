@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 16:42:29 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/10 18:20:09 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:24:34 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ ClapTrap::ClapTrap(const ClapTrap& from) {
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& from) {
   if(this != &from) {
-    this->name_ = from.getName();
-    this->hitPoints_ = from.getHitPoints();
-    this->energyPoints_ = from.getEnergyPoints();
-    this->attackDamage_ = from.getAttackDamage();
+    name_ = from.name_;
+    hitPoints_ = from.hitPoints_;
+    energyPoints_ = from.energyPoints_;
+    attackDamage_ = from.attackDamage_;
   }
   return *this;
 }

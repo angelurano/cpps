@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 18:13:43 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/10 19:46:34 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:22:22 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 int main() {
   ScavTrap scav("ScavPedro");
   ClapTrap clap("ClapLuis");
+
+  std::cout << std::endl;
 
   // Basic interaction
   clap.setAttackDamage(3);
@@ -46,5 +48,9 @@ int main() {
   // Activate guard gate mode
   scav.guardGate();
 
-  return 0;
+  // Set scav hit points to 0 and try to activate guard gate mode
+  scav.setHitPoints(0);
+  scav.guardGate();
+
+  std::cout << std::endl;
 }

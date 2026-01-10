@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:21:31 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/10 19:43:06 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:16:17 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,9 @@ FragTrap::~FragTrap() {
 }
 
 void FragTrap::highFivesGuys() const {
+  if (hitPoints_ <= 0) {
+    std::cout << ITALIC << YELLOW << "FragTrap " << name_ << " is dead and cannot request a high five :(" << RESET << std::endl;
+    return;
+  }
   std::cout << ITALIC << GREEN << "FragTrap " << name_ << " is requesting a high five!" << RESET << std::endl;
 }

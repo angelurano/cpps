@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 16:41:57 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/10 19:14:53 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:22:06 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 int main() {
   ClapTrap clap1("Juan");
   ClapTrap clap2("Carlos");
+
+  std::cout << std::endl;
 
   // Basic interaction
   clap1.setAttackDamage(5);
@@ -54,6 +56,6 @@ int main() {
   clap1.attack(clap2.getName());
   clap1.beRepaired(1);
 
-  return 0;
+  std::cout << std::endl;
 }
 
