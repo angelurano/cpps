@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 18:13:43 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/10 19:17:26 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:46:34 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,22 @@
 #include <iostream>
 
 int main() {
-  ScavTrap scav("Pedro");
-  ClapTrap clap("Luis");
+  ScavTrap scav("ScavPedro");
+  ClapTrap clap("ClapLuis");
 
   // Basic interaction
-  scav.setAttackDamage(5);
   clap.setAttackDamage(3);
-
-  scav.attack(clap.getName());
-  clap.takeDamage(scav.getAttackDamage());
 
   clap.attack(scav.getName());
   scav.takeDamage(clap.getAttackDamage());
-
-  scav.beRepaired(3);
-  clap.beRepaired(2);
 
   // Kill clap
   scav.attack(clap.getName());
   clap.takeDamage(scav.getAttackDamage());
 
-  scav.attack(clap.getName());
-  clap.takeDamage(scav.getAttackDamage());
+  scav.beRepaired(3);
 
   // Check clap after being dead
-  clap.attack(scav.getName());
-  clap.beRepaired(5);
-
   scav.attack(clap.getName());
   clap.takeDamage(scav.getAttackDamage());
 
