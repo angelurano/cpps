@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 16:41:57 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/10 18:06:56 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:14:53 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int main() {
   clap2.beRepaired(2);
 
   // Kill clap2
-
   clap1.attack(clap2.getName());
   clap2.takeDamage(clap1.getAttackDamage());
 
