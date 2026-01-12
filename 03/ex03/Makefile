@@ -1,4 +1,4 @@
-NAME = claptrap
+NAME = trap
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -MMD -MP
