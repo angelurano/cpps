@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:40:01 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/14 17:08:44 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:04:53 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ Dog& Dog::operator=(const Dog& src) {
 }
 
 Dog::~Dog() {
+  std::cout << "Dog destructor called" << std::endl;
   if (brain_ != NULL) {
     delete brain_;
   }
-  std::cout << "Dog destructor called" << std::endl;
 }
 
 const Brain* Dog::getBrain() const {

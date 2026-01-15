@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:11:19 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/14 23:26:57 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:04:28 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ Cat& Cat::operator=(const Cat& src) {
 }
 
 Cat::~Cat() {
+  std::cout << "Cat destructor called" << std::endl;
   if (brain_ != NULL) {
     delete brain_;
   }
-  std::cout << "Cat destructor called" << std::endl;
 }
 
 const Brain* Cat::getBrain() const {

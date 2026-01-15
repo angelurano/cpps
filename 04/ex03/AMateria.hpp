@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 23:35:49 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 20:39:22 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:10:25 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 # include "ICharacter.hpp"
 
-# include "colors.h"
+# define RESET "\033[0m"
+# define CONSTRUCTOR "\033[3;32m"
+# define DESTRUCTOR "\033[3;31m"
+# define ACTION "\033[1;36m"
+# define WARNING "\033[1;33m"
+# define LOG "\033[4;97m"
 
 # include <iostream>
 # include <string>
