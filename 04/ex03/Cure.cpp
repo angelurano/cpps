@@ -6,18 +6,18 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:17:43 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 18:59:39 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:47:20 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
 Cure::Cure() : AMateria("cure") {
-  std::cout << "Cure default constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "Cure default constructor called" << RESET << std::endl;
 }
 
 Cure::Cure(const Cure& src) : AMateria(src) {
-  std::cout << "Cure copy constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "Cure copy constructor called" << RESET << std::endl;
 }
 
 Cure& Cure::operator=(const Cure& src) {
@@ -26,7 +26,7 @@ Cure& Cure::operator=(const Cure& src) {
 }
 
 Cure::~Cure() {
-  std::cout << "Cure destructor called" << std::endl;
+  std::cout << DESTRUCTOR << "Cure destructor called" << RESET << std::endl;
 }
 
 AMateria* Cure::clone() const {
@@ -34,5 +34,5 @@ AMateria* Cure::clone() const {
 }
 
 void Cure::use(ICharacter& target) {
-  std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+  std::cout << ACTION << "* heals " << target.getName() << "'s wounds *" << RESET << std::endl;
 }

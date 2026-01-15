@@ -6,18 +6,18 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:59:48 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 19:02:25 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:47:53 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice") {
-  std::cout << "Ice default constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "Ice default constructor called" << RESET << std::endl;
 }
 
 Ice::Ice(const Ice& src) : AMateria(src) {
-  std::cout << "Ice copy constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "Ice copy constructor called" << RESET << std::endl;
 }
 
 Ice& Ice::operator=(const Ice& src) {
@@ -26,7 +26,7 @@ Ice& Ice::operator=(const Ice& src) {
 }
 
 Ice::~Ice() {
-  std::cout << "Ice destructor called" << std::endl;
+  std::cout << DESTRUCTOR << "Ice destructor called" << RESET << std::endl;
 }
 
 AMateria* Ice::clone() const {
@@ -34,5 +34,5 @@ AMateria* Ice::clone() const {
 }
 
 void Ice::use(ICharacter& target) {
-  std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+  std::cout << ACTION << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
 }

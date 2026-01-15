@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:44:22 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 19:45:13 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:01:58 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 Character::Character() : name_("Character") {
   for (int i = 0; i < 4; i++)
     inventory_[i] = NULL;
-  std::cout << "Character default constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "Character default constructor called" << RESET << std::endl;
 }
 
 Character::Character(const std::string& name) : name_(name) {
   for (int i = 0; i < 4; i++)
     inventory_[i] = NULL;
-  std::cout << "Character name constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "Character name constructor called" << RESET << std::endl;
 }
 
 Character::Character(const Character& src) {
   for (int i = 0; i < 4; i++)
     inventory_[i] = NULL;
   *this = src;
-  std::cout << "Character copy constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "Character copy constructor called" << RESET << std::endl;
 }
 
 Character& Character::operator=(const Character& src) {
@@ -47,10 +47,10 @@ Character& Character::operator=(const Character& src) {
 }
 
 Character::~Character() {
+  std::cout << DESTRUCTOR << "Character destructor called" << RESET << std::endl;
   for (int i = 0; i < 4; i++) {
     delete inventory_[i];
   }
-  std::cout << "Character destructor called" << std::endl;
 }
 
 const std::string& Character::getName() const {
@@ -69,12 +69,21 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::use(int idx, ICharacter& target) {
-  if (idx < 0 || idx >= 4) return;
-  if (inventory_[idx] == NULL) return;
+  if (idx < 0 || idx >= 4) {
+    std::cout << WARNING << "Index "<< idx << " out of bounds" << RESET << std::endl;
+    return;
+  }
+  if (inventory_[idx] == NULL) {
+    std::cout << WARNING << "No materia equipped at index " << idx << RESET << std::endl;
+    return;
+  }
   inventory_[idx]->use(target);
 }
 
 void Character::unequip(int idx) {
-  if (idx < 0 || idx >= 4) return;
+  if (idx < 0 || idx >= 4) {
+    std::cout << WARNING << "Index "<< idx << " out of bounds" << RESET << std::endl;
+    return;
+  }
   inventory_[idx] = NULL;
 }

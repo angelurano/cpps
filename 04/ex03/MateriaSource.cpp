@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:38:12 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 19:50:13 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:00:58 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 MateriaSource::MateriaSource() : index_(0) {
   for (int i = 0; i < 4; i++)
     learned_[i] = NULL;
-  std::cout << "MateriaSource default constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "MateriaSource default constructor called" << RESET << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& src) : index_(0) {
   for (int i = 0; i < 4; i++)
     learned_[i] = NULL;
   *this = src;
-  std::cout << "MateriaSource copy constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "MateriaSource copy constructor called" << RESET << std::endl;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& src) {
@@ -40,10 +40,10 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& src) {
 }
 
 MateriaSource::~MateriaSource() {
+  std::cout << DESTRUCTOR << "MateriaSource destructor called" << RESET << std::endl;
   for (int i = 0; i < index_; i++) {
     delete learned_[i];
   }
-  std::cout << "MateriaSource destructor called" << std::endl;
 }
 
 void MateriaSource::learnMateria(AMateria *m) {

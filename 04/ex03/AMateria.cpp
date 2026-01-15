@@ -6,22 +6,22 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 23:38:11 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 19:30:18 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:46:29 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria() {
-  std::cout << "AMateria default constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "AMateria default constructor called" << RESET << std::endl;
 }
 
 AMateria::AMateria(const AMateria& src) : type_(src.type_) {
-  std::cout << "AMateria copy constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "AMateria copy constructor called" << RESET << std::endl;
 }
 
 AMateria::AMateria(const std::string& type) : type_(type) {
-  std::cout << "AMateria type constructor called" << std::endl;
+  std::cout << CONSTRUCTOR << "AMateria type constructor called" << RESET << std::endl;
 }
 
 AMateria& AMateria::operator=(const AMateria& src) {
@@ -30,7 +30,7 @@ AMateria& AMateria::operator=(const AMateria& src) {
 }
 
 AMateria::~AMateria() {
-  std::cout << "AMateria destructor called" << std::endl;
+  std::cout << DESTRUCTOR << "AMateria destructor called" << RESET << std::endl;
 }
 
 const std::string& AMateria::getType() const {
@@ -38,5 +38,5 @@ const std::string& AMateria::getType() const {
 }
 
 void AMateria::use(ICharacter& target) {
-  std::cout << " * default attack " << type_ << " to " << target.getName() << " *" << std::endl;
+  std::cout << ACTION << " * default attack " << type_ << " to " << target.getName() << " *" << RESET << std::endl;
 }

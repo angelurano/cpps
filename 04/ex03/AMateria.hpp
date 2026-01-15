@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 23:35:49 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 15:22:17 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:39:22 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define AMATERIA_HPP_
 
 # include "ICharacter.hpp"
+
+# include "colors.h"
 
 # include <iostream>
 # include <string>
