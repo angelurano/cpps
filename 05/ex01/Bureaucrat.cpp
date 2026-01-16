@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:39:11 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/16 20:10:22 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/16 20:09:22 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ void Bureaucrat::decrementGrade() {
     throw GradeTooLowException();
   }
   grade_++;
+}
+
+void Bureaucrat::signForm(Form& form) const {
+  try {
+    form.beSigned(*this);
+    std::cout << name_ << " signed " << form.getName() << std::endl;
+  } catch (std::exception& e) {
+    std::cout << name_ << " couldn't sign " << form.getName() << " because " << e.what() << "." << std::endl;
+  }
 }
 
 std::ostream& operator<<(std::ostream& ostrm, const Bureaucrat& bureaucrat) {
