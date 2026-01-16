@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:38:12 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 21:00:58 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/16 12:37:24 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,13 @@ MateriaSource::~MateriaSource() {
 void MateriaSource::learnMateria(AMateria *m) {
   if (m == NULL) return;
 
-  if (index_ < 4) {
-    learned_[index_] = m;
-    index_++;
+  if (index_ >= 4) {
+    std::cout << WARNING << "MateriaSource cannot learn more. Cleaning up passed materia." << RESET << std::endl;
+    delete m;
+    return;
   }
+  learned_[index_] = m;
+  index_++;
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type) {
@@ -61,5 +64,6 @@ AMateria* MateriaSource::createMateria(const std::string& type) {
       return learned_[i]->clone();
     }
   }
+  std::cout << WARNING << "MateriaSource cannot create materia of type '" << type << "'." << RESET << std::endl;
   return NULL;
 }

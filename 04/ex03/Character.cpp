@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:44:22 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 21:01:58 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/16 12:38:05 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void Character::equip(AMateria* m) {
       return;
     }
   }
+  std::cout << WARNING << "Inventory full, cannot equip materia" << RESET << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {
