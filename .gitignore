@@ -4,6 +4,7 @@
 *.a
 *.log
 *.replace
+*_shrubbery
 
 megaphone
 phonebook
