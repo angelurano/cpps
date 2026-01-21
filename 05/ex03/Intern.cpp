@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 21:45:59 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/21 22:45:06 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/21 23:46:39 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target) cons
       return ((this)->*makers[i])(target);
     }
   }
+  std::cout << "Intern cannot create " << name << std::endl;
   throw NotFoundException();
 }
 
