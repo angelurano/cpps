@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:02:14 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/21 21:31:56 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:43:02 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@
 #include <cstdlib>
 #include <ctime>
 
-// Colors
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
 #define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-#define BOLD    "\033[1m"
+#define CYAN "\033[36m"
+#define BOLD "\033[1m"
 
 int main() {
   std::srand(std::time(0));
@@ -46,7 +45,7 @@ int main() {
       bureaucrat.executeForm(shrub);
       std::cout << GREEN << "SUCCESS: " << RESET << shrub << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -88,7 +87,7 @@ int main() {
 
       std::cout << std::endl << GREEN << "SUCCESS: " << RESET << robot << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -104,7 +103,7 @@ int main() {
       bureaucrat.executeForm(pardon);
       std::cout << GREEN << "SUCCESS: " << RESET << pardon << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
 
@@ -118,11 +117,11 @@ int main() {
       std::cout << bureaucrat << std::endl;
       std::cout << shrub;
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       bureaucrat.executeForm(shrub);
       std::cout << shrub << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -134,11 +133,11 @@ int main() {
       std::cout << bureaucrat << std::endl;
       std::cout << robot;
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       bureaucrat.executeForm(robot);
       std::cout << robot << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -150,11 +149,11 @@ int main() {
       std::cout << bureaucrat << std::endl;
       std::cout << pardon;
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       bureaucrat.executeForm(pardon);
       std::cout << pardon << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
 
@@ -172,11 +171,11 @@ int main() {
 
       signer.signForm(shrub);
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       executor.executeForm(shrub);
       std::cout << shrub << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -192,11 +191,11 @@ int main() {
 
       signer.signForm(robot);
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       executor.executeForm(robot);
       std::cout << robot << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -212,11 +211,11 @@ int main() {
 
       signer.signForm(pardon);
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       executor.executeForm(pardon);
       std::cout << pardon << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
 
@@ -230,11 +229,11 @@ int main() {
       std::cout << bureaucrat << std::endl;
       std::cout << shrub;
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       bureaucrat.signForm(shrub);
       std::cout << shrub << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -246,11 +245,11 @@ int main() {
       std::cout << bureaucrat << std::endl;
       std::cout << robot;
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       bureaucrat.signForm(robot);
       std::cout << robot << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
   {
@@ -262,11 +261,11 @@ int main() {
       std::cout << bureaucrat << std::endl;
       std::cout << pardon;
 
-      std::cout << RED << "HANDLED ERROR: " << RESET;
+      std::cout << RED << "HANDLED: " << RESET;
       bureaucrat.signForm(pardon);
       std::cout << pardon << std::endl;
     } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      std::cout << RED << "ERROR: " << RESET << e.what() << std::endl;
     }
   }
 }
