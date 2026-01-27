@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 16:53:29 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/26 21:39:50 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/27 16:33:38 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static bool converterLiteral(const std::string& input) {
   if (input == "nan" || input == "nanf") {
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
-    std::cout << "float: nanf\n" << std::endl;
-    std::cout << "double: nan\n" << std::endl;
+    std::cout << "float: nanf" << std::endl;
+    std::cout << "double: nan" << std::endl;
   } else if (input == "+inf" || input == "+inff") {
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
@@ -111,7 +111,7 @@ static void printChar(double val) {
     if (!std::isprint(c)) {
       std::cout << "Non displayable" << std::endl;
     } else {
-      std::cout << c << std::endl;
+      std::cout << "'" << c << "'" << std::endl;
     }
   }
 }
@@ -129,12 +129,14 @@ static void printFloat(double val) {
   std::cout << "float: ";
   if (isNaN(val)) {
     std::cout << "nanf" << std::endl;
-  } else if (isInf(val)) {
+  } else if (isInf(val) || val > FLT_MAX || val < -FLT_MAX) {
     std::cout << (val > 0 ? "+inff" : "-inff") << std::endl;
   } else {
     float f = static_cast<float>(val);
     std::cout << f;
     if (f - static_cast<int>(f) == 0 && val > -1e6 && val < 1e6) {
+      // By default, floats print without decimal point for whole numbers
+      // higher numbers get scientific notation (>1e6 or <-1e6)
       std::cout << ".0";
     }
     std::cout << "f" << std::endl;
@@ -175,11 +177,11 @@ const char* ScalarConverter::NotValidInputException::what() const throw() {
   return "Input not valid: invalid type or input out of bounds";
 }
 
-ScalarConverter::ScalarConverter() {};
+ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter& src) {
   (void)src;
-};
+}
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src) {
   (void)src;
