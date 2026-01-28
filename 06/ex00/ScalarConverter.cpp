@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 16:53:29 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/27 16:33:38 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/01/28 11:56:45 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static bool converterInt(const std::string& input, double &val) {
   if (input[input.size() - 1] == 'f') return false;
   size_t i = 0;
   if (input[i] == '+' || input[i] == '-') i++;
-  for (i = i; i < input.size(); i++) {
+  for (; i < input.size(); i++) {
     if (!isdigit(input[i])) return false;
   }
   long vall = strtol(input.c_str(), NULL, 10);
@@ -67,7 +67,7 @@ static bool converterFloat(const std::string& input, double &val) {
   size_t i = 0;
   if (input[i] == '+' || input[i] == '-') i++;
   bool seenPoint = false;
-  for (i = i; i < input.size() - 1; i++) {
+  for (; i < input.size() - 1; i++) {
     if (input[i] == '.') {
       if (seenPoint) return false;
       seenPoint = true;
@@ -90,7 +90,7 @@ static bool converterDouble(const std::string& input, double &val) {
   size_t i = 0;
   if (input[i] == '+' || input[i] == '-') i++;
   bool seenPoint = false;
-  for (i = i; i < input.size() - 1; i++) {
+  for (; i < input.size() - 1; i++) {
     if (input[i] == '.') {
       if (seenPoint) return false;
       seenPoint = true;
