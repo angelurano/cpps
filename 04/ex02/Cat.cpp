@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:11:19 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/15 21:04:28 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/02/02 15:50:56 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::Cat(const Cat& src) : AAnimal(src), brain_(NULL) {
 }
 
 Cat& Cat::operator=(const Cat& src) {
-  if (this == &src) {
+  if (this != &src) {
     AAnimal::operator=(src);
     if (brain_ != NULL) {
       delete brain_;

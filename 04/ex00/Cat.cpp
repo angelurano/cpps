@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:11:19 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/12 19:57:59 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/02/02 15:50:27 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cat::Cat(const Cat& src) : Animal(src) {
 }
 
 Cat& Cat::operator=(const Cat& src) {
-  if (this == &src) {
+  if (this != &src) {
     Animal::operator=(src);
   }
   return *this;
