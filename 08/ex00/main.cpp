@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 12:30:27 by migugar2          #+#    #+#             */
-/*   Updated: 2026/01/29 14:23:16 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:09:41 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ int main() {
   std::cout << std::endl;
 
   {
-    std::cout << std::endl << "Vector examples" << std::endl;
+    std::cout << std::endl << "=== Vector examples ===" << std::endl;
     std::vector<int> stl(arr, arr + len);
     testWithStruct(stl, arr);
   }
 
   {
-    std::cout << std::endl << "List examples" << std::endl;
+    std::cout << std::endl << "=== List examples ===" << std::endl;
     std::list<int> stl(arr, arr + len);
     testWithStruct(stl, arr);
   }
 
   {
-    std::cout << std::endl << "Deque examples" << std::endl;
+    std::cout << std::endl << "=== Deque examples ===" << std::endl;
     std::deque<int> stl(arr, arr + len);
     testWithStruct(stl, arr);
   }
