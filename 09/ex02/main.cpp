@@ -6,39 +6,62 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:39:53 by migugar2          #+#    #+#             */
-/*   Updated: 2026/02/16 23:38:32 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:42:48 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
 #include <ctime>
 #include <iostream>
 #include <iomanip>
 #include <vector>
 #include <deque>
+#include <climits>
 
-int main(int argc, char* argv[]) {
+void parseData(int argc, char* argv[], std::vector<int> &vec, std::deque<int> &deq) {
   if (argc < 2) {
-    std::cerr << "Usage: " << argv[0] << " <numbers...>" << std::endl;
-    return 1;
+    throw std::invalid_argument("Invalid number of arguments.");
   }
 
-  std::vector<int> vec;
-  std::deque<int> deq;
-
   for (int i = 1; i < argc; i++) {
-    int num = std::atoi(argv[i]);
+    if (argv[i][0] == '\0') {
+      throw std::invalid_argument("Empty string input found.");
+    }
+    char *endptr;
+    long vall = std::strtol(argv[i], &endptr, 10);
+    if (*endptr != '\0') {
+      throw std::invalid_argument("Non-numeric input found.");
+    }
+    if (vall < 0 || vall > INT_MAX) {
+      throw std::invalid_argument("Input value out of valid range.");
+    }
+    int num = static_cast<int>(vall);
+    for (size_t j = 0; j < vec.size(); j++) {
+      if (vec[j] == num) {
+        throw std::invalid_argument("Duplicate value found.");
+      }
+    }
     vec.push_back(num);
     deq.push_back(num);
   }
-  for (size_t i = 0; i < vec.size(); i++) {
-    for (size_t j = i + 1; j < vec.size(); j++) {
-      if (vec[i] == vec[j]) {
-        std::cerr << "Error: Duplicate number " << vec[i] << " found." << std::endl;
-        return 1;
-      }
-    }
+}
+
+double getElapsedMicroseconds(clock_t start, clock_t end) {
+  return static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0;
+}
+
+int main(int argc, char* argv[]) {
+  std::vector<int> vec;
+  std::deque<int> deq;
+
+  try {
+    parseData(argc, argv, vec, deq);
+  } catch (const std::invalid_argument& e) {
+    std::cerr << "Error: " << e.what() << std::endl;
+    return 1;
   }
+
   std::cout << "Before:";
   for (size_t i = 0; i < vec.size(); i++) {
     std::cout << " " << vec[i];
@@ -53,13 +76,13 @@ int main(int argc, char* argv[]) {
     clock_t start = clock();
     sorter.sortVector(vec);
     clock_t end = clock();
-    elapsedVector = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0;
+    elapsedVector = getElapsedMicroseconds(start, end);
   }
   {
     clock_t start = clock();
     sorter.sortDeque(deq);
     clock_t end = clock();
-    elapsedDeque = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0;
+    elapsedDeque = getElapsedMicroseconds(start, end);
   }
 
   std::cout << "After:";

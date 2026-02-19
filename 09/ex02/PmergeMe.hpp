@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:39:23 by migugar2          #+#    #+#             */
-/*   Updated: 2026/02/18 12:03:32 by migugar2         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:42:29 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <deque>
 #include <utility>
 #include <algorithm>
+#include <iostream>
 
 class PmergeMe {
   private:
